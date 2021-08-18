@@ -2,9 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const db = require("./src/config/database");
 const userRoute = require("./src/routers/user");
-dotenv.config({
-  path: "./src/utils/.env",
-});
+
+dotenv.config();
 
 const PORT = process.env.PORT;
 
@@ -16,7 +15,7 @@ db.authenticate()
   .then(() => {
     console.log("MYSQL Connected...");
   })
-  .catch((error) => console.log("Can't Connect!"));
+  .catch((error) => console.log("Can't Connect! ", error.message));
 
 app.use(userRoute);
 

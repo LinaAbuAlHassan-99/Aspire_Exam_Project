@@ -1,8 +1,7 @@
 const Sequelize = require("sequelize");
 const dotenv = require("dotenv");
-dotenv.config({
-  path: "../utils/.env",
-});
+
+dotenv.config();
 
 module.exports = new Sequelize(
   process.env.DATABASE,
